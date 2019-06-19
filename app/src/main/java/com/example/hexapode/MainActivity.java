@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         if (bluetoothAdapter == null) {
             Toast.makeText(MainActivity.this, "vous n'avez pas de bluetooth", Toast.LENGTH_LONG).show();
             btstatus.setText("Status: Bluetooth not found");
-        }else{
+        } else {
 
         }
 
@@ -156,11 +156,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        deappair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                write('B');
+                btstatus.setText("Bluetooth enabled");
+                cancel();
+
+            }
+        });
+
+        }
 
 
 
 
-    }
+
+
 
 
     /**
@@ -178,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent Data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent xx) {
         // Check which request we're responding to
         if (requestCode == REQUEST_ENABLE_BT) {
             // Make sure the request was successful
@@ -316,6 +328,9 @@ public class MainActivity extends AppCompatActivity {
                         mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name).sendToTarget();
                         Intent i1 = new Intent (MainActivity.this,IntentFonction.class);
                         startActivity(i1);
+
+
+
                     }
                 }
             }.start();
@@ -382,6 +397,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     /**
      *fonction write permettant permettant d'envoyer des octets a l'appareil cible
      * @param bytes
@@ -398,6 +414,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     /**
      * fonction cancel permet de desappairer l'apareil esclave.
      */
@@ -408,6 +425,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
         }
     }
+
+
+
 
 }
 
