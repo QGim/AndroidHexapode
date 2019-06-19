@@ -49,10 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private Button desactive;
     private Button exist;
     private Button recherche;
-    private Button modelidar;
-    private Button testPattes;
-    private Button rotate;
-    private Button stop;
+
     private Button deappair;
 
     private TextView btstatus;
@@ -90,13 +87,7 @@ public class MainActivity extends AppCompatActivity {
         exist = findViewById(R.id.Exist);
         recherche = findViewById(R.id.Recherche);
         btstatus = findViewById(R.id.status);
-        modelidar = findViewById(R.id.ml);
-        testPattes = findViewById(R.id.testpattes);
-        rotate = findViewById(R.id.rotate);
-        stop = findViewById(R.id.stop);
         deappair = findViewById(R.id.deappairer);
-
-
         ListViewDevice = findViewById(R.id.listdevice);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         pairedDevices = bluetoothAdapter.getBondedDevices();
@@ -165,50 +156,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /**
-         * appel les fonction d'envoi de caractere lors du click sur les bouton de communication
-         */
-        rotate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                write('D');
-            }
-        });
 
-        testPattes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                write('A');
-            }
-        });
 
-        modelidar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                write('B');
-            }
-        });
-
-        stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                write('C');
-            }
-        });
-
-        deappair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                write('B');
-                modelidar.setVisibility(View.INVISIBLE);
-                testPattes.setVisibility(View.INVISIBLE);
-                rotate.setVisibility(View.INVISIBLE);
-                stop.setVisibility(View.INVISIBLE);
-                btstatus.setText("Bluetooth enabled");
-                cancel();
-
-            }
-        });
 
 
     }
@@ -365,13 +314,12 @@ public class MainActivity extends AppCompatActivity {
                         mConnectedThread.start();
 
                         mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name).sendToTarget();
+                        Intent i1 = new Intent (MainActivity.this,IntentFonction.class);
+                        startActivity(i1);
                     }
                 }
             }.start();
-            modelidar.setVisibility(View.VISIBLE);
-            testPattes.setVisibility(View.VISIBLE);
-            rotate.setVisibility(View.VISIBLE);
-            stop.setVisibility(View.VISIBLE);
+
         }
 
     };
