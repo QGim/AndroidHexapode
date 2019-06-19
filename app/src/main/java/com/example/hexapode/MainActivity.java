@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
                 testPattes.setVisibility(View.INVISIBLE);
                 rotate.setVisibility(View.INVISIBLE);
                 stop.setVisibility(View.INVISIBLE);
+                btstatus.setText("Bluetooth enabled");
                 cancel();
 
             }
@@ -363,8 +364,7 @@ public class MainActivity extends AppCompatActivity {
                         mConnectedThread = new ConnectedThread(mBTSocket);
                         mConnectedThread.start();
 
-                        mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
-                                .sendToTarget();
+                        mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name).sendToTarget();
                     }
                 }
             }.start();

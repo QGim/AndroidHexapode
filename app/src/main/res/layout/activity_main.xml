@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245" />
+        app:layout_constraintVertical_bias="0.256" />
 
     <Button
         android:id="@+id/ON"
@@ -94,7 +94,7 @@
         app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388"
+        app:layout_constraintVertical_bias="0.395"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -112,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388"
+        app:layout_constraintVertical_bias="0.395"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -198,6 +198,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.335" />
 
 </android.support.constraint.ConstraintLayout>
